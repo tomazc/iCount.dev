@@ -4,9 +4,9 @@
 
 `hugo server`
 
-## To build (in subfolder `public`):
+## To build:
 
-`hugo -D`
+`hugo -D` # builds the static pages in subfolder `public`
 
 ## Test instance
 
