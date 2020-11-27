@@ -6,7 +6,7 @@
 
 ## To build:
 
-`hugo -D` # builds the static pages in subfolder `public`
+`hugo -D # builds the static pages in subfolder public`
 
 ## Test instance
 
