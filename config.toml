@@ -188,3 +188,8 @@ enable = false
 	url = "https://example.org/mail"
 	icon = "fa fa-envelope"
         desc = "Discuss development issues around the project"
+
+[[menu.main]]
+    name = "Documentation"
+    weight = 10
+    url = "https://icount.readthedocs.io/en/2.0.0/"
