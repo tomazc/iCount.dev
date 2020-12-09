@@ -1,4 +1,4 @@
-baseURL = "/iCount"
+baseURL = ""
 title = "iCount"
 
 enableRobotsTXT = true
