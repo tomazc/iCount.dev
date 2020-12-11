@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Heterogeneous nuclear ribonucleoproteins C1/C2",
+        "abbreviation": "hnRNPC"
+    },
+    {
+        "name": "TIA1 Cytotoxic Granule Associated RNA Binding Protein",
+        "abbreviation": "TIA1"
+    },
+    {
+        "name": "TAR DNA-binding protein 43",
+        "abbreviation": "TDP-43"
+    },
+    {
+        "name": "Splicing factor U2AF 65 kDa subunit",
+        "abbreviation": "U2AF65"
+    },
+    {
+        "name": "RNA-binding protein FUS",
+        "abbreviation": "FUS"
+    },
+    {
+        "name": "SRp75-GFP",
+        "abbreviation": "SRp75-GFP"
+    },
+    {
+        "name": "EGFP-NLS-1",
+        "abbreviation": "EGFP-NLS-1"
+    },
+    {
+        "name": "SRp20-GFP",
+        "abbreviation": "SRp20-GFP"
+    }
+]
