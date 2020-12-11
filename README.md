@@ -2,7 +2,7 @@
 
 ## To start hugo server
 
-`hugo server`
+`hugo server -D`
 
 ## To build:
 
