@@ -1,9 +1,15 @@
 {{ define "main" }}
 
-<br><br><br>
+<br><br>
 
-{{ range .Site.Data.proteins }}
-    <b><a href="/data_{{.abbreviation}}">{{.abbreviation}}</a></b>  -  {{.name}} <br>
+{{ $data := .Params.data }}
+{{ $proteins := index .Site.Data $data }}
+
+<br>
+<br>
+
+{{ range $proteins }}
+    <b><a href="/proteins/{{ lower .abbreviation }}/">{{.abbreviation}}</a></b>  -  {{.name}} <br>
 {{end}}
 
 <br>
