@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+<br><br><br>
+
+{{ range .Site.Data.proteins }}
+    <b><a href="/data_{{.abbreviation}}">{{.abbreviation}}</a></b>  -  {{.name}} <br>
+{{end}}
+
+<br>
+
+{{ with .Content }}
+{{ . }}
+{{ end }}
+{{ end }}
