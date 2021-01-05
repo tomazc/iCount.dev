@@ -3,7 +3,7 @@
 
 # iCount landing page
 
-Build with [Hugo](https://gohugo.io/), shipped by [netlify](https://www.netlify.com), available at https://icount.dev.
+Build with [Hugo](https://gohugo.io/), shipped by [netlify](https://www.netlify.com), available at https://icount.dev and https://icount.netlify.com.
 
 ## To start hugo server
 
