@@ -191,3 +191,4 @@ enable = false
     name = "Documentation"
     weight = 10
     url = "https://icount.readthedocs.io/en/2.0.0/"
+    target = "_blank"
