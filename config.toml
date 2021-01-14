@@ -183,6 +183,11 @@ enable = false
         desc = "Discuss development issues around the project"
 
 [[menu.main]]
+    name = "About"
+    weight = 10
+    url = "#td-block-1"
+
+[[menu.main]]
     name = "Documentation"
     weight = 10
     url = "https://icount.readthedocs.io/en/2.0.0/"
