@@ -8,9 +8,19 @@
 <br>
 <br>
 
-{{ range $proteins }}
-    <b><a href="/proteins/{{ lower .abbreviation }}/">{{.abbreviation}}</a></b>  -  {{.name}} <br>
+{{ range $key, $val := $proteins }}
+  <b>{{ $key }}</b><br>
+  {{ range $key2, $val2 := $val }}
+    {{ $val2 }}: {{ $key2 }}<br>
+  {{end}}
+  <br>
 {{end}}
+
+<!-->
+{{ range $key2, $val2 := index $proteins "TDP-43" }}
+  {{ $val2 }}: {{ $key2 }}<br>
+{{end}}
+<!-->
 
 <br>
 
