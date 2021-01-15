@@ -11,7 +11,7 @@
 {{ range $key, $val := $proteins }}
   <b>{{ $key }}</b><br>
   {{ range $key2, $val2 := $val }}
-    {{ $val2 }}: {{ $key2 }}<br>
+    <a href='/experiments/{{ $val2 }}'>{{ index $val2 }}</a><br>
   {{end}}
   <br>
 {{end}}
