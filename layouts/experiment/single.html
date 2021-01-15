@@ -1,0 +1,22 @@
+{{ define "main" }}
+
+<br><br>
+
+{{ $experiment := .Params.experiment }}
+{{ $experiments := index .Site.Data.exp2res_processed }}
+
+<br>
+<br>
+
+{{ $experiment }}
+
+{{ range $key, $val := index $experiments $experiment }}
+ {{ $key }} : {{ $val }} <br>
+{{end}}
+
+<br>
+
+{{ with .Content }}
+{{ . }}
+{{ end }}
+{{ end }}
