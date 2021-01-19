@@ -33,7 +33,11 @@
   <td align=right><b>Species</b>:</td><td>{{ index $annotation "species" }}</td>
 </tr>
 <tr>
-  <td align=right><b>FASTQ</b>:</td><td><a href='{{ index $annotation "fq_filename" }}'>{{ index $annotation "fq_filename" }}</a></td>
+  {{ $furl := index $annotation "fq_filename" }}
+  {{ $fname := index $annotation "fq_filename" }}
+  {{ $fname := split $fname "/" }}
+  {{ $fname := index $fname (add (len $fname) -1) }}
+  <td align=right><b>FASTQ</b>:</td><td><a href='{{ $furl }}'>{{ $fname }}</a></td>
 </tr>
 </table>
 
@@ -63,7 +67,11 @@
   <table border=0>
     {{ range $res_key, $res_value := $mapping_results }}
     <tr>
-      <td align=right><b>{{ index $res_value "type" }}</b>:</td><td><a href='{{ index $res_value "result_filename" }}'>{{ index $res_value "result_filename" }}</a></td>
+      {{ $furl := index $res_value "result_filename" }}
+      {{ $fname := index $res_value "result_filename" }}
+      {{ $fname := split $fname "/" }}
+      {{ $fname := index $fname (add (len $fname) -1) }}
+      <td align=right><b>{{ index $res_value "type" }}</b>:</td><td><a href='{{ $furl }}'>{{ $fname }}</a></td>
     </tr>
   {{ end }}
   </table>
