@@ -8,11 +8,73 @@
 <br>
 <br>
 
-{{ $experiment }}
+{{ $experiment_data := index $experiments $experiment }}
+{{ $annotation := index $experiment_data "Annotation" }}
 
-{{ range $key, $val := index $experiments $experiment }}
+<b><font color=darkred>Annotation</b></font>
+<br>
+<table border=0>
+<tr>
+  <td align=right><b>Library ID</b>:</td><td>{{ index $annotation "lib_id" }}</td>
+</tr>
+<tr>
+  <td align=right><b>Experiment ID</b>:</td><td>{{ index $annotation "exp_id" }}</td>
+</tr>
+<tr>
+  <td align=right><b>Replicate</b>:</td><td>{{ index $annotation "replicate" }}</td>
+</tr>
+<tr>
+  <td align=right><b>Tissue</b>:</td><td>{{ index $annotation "tissue" }}</td>
+</tr>
+<tr>
+  <td align=right><b>Condition</b>:</td><td>{{ index $annotation "condition" }}</td>
+</tr>
+<tr>
+  <td align=right><b>Species</b>:</td><td>{{ index $annotation "species" }}</td>
+</tr>
+<tr>
+  <td align=right><b>FASTQ</b>:</td><td><a href='{{ index $annotation "fq_filename" }}'>{{ index $annotation "fq_filename" }}</a></td>
+</tr>
+</table>
+
+{{ $mappings := index $experiment_data "Mappings" }}
+
+<br>
+
+{{ range $mapping_key, $mapping_data := $mappings }}
+   {{ $mapping_annotation := index $mapping_data "Annotation" }}
+   {{ $mapping_results := index $mapping_data "Results" }}
+  <b><font color=darkred>Mapping</b></font>
+  <br>
+  <table border=0>
+  <tr>
+    <td align=right><b>Mapped to</b>:</td><td>{{ index $mapping_annotation "mapped_to" }}</td>
+  </tr>
+  <tr>
+    <td align=right><b>Annotation version</b>:</td><td>{{ index $mapping_annotation "annotation_version" }}</td>
+  </tr>
+  <tr>
+    <td align=right><b>Last update</b>:</td><td>{{ index $mapping_annotation "last_update" }}</td>
+  </tr>
+  </table>
+  <br>
+  <b><font color=darkred>Results</b></font>
+  <br>
+  <table border=0>
+    {{ range $res_key, $res_value := $mapping_results }}
+    <tr>
+      <td align=right><b>{{ index $res_value "type" }}</b>:</td><td><a href='{{ index $res_value "result_filename" }}'>{{ index $res_value "result_filename" }}</a></td>
+    </tr>
+  {{ end }}
+  </table>
+
+{{ end }}
+
+<!--
+{{ range $key, $val := $experiment_data }}
  {{ $key }} : {{ $val }} <br>
 {{end}}
+-->
 
 <br>
 
