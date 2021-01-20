@@ -48,7 +48,7 @@
 {{ range $mapping_key, $mapping_data := $mappings }}
    {{ $mapping_annotation := index $mapping_data "Annotation" }}
    {{ $mapping_results := index $mapping_data "Results" }}
-  <b><font color=darkred>Mapping</b></font>
+  <b><font color=darkred>Mapping ({{ $mapping_key }})</b></font>
   <br>
   <table border=0>
   <tr>
