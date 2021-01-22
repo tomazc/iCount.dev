@@ -163,7 +163,7 @@ def process_all():
         if not exp_maps:
             continue
         exp_data['Mappings'] = exp_maps
-        k = str((e.lib_id, str(e.exp_id)))
+        k = str(e.lib_id) + "_" + str(e.exp_id)
         ret_json[k] = exp_data
         protein2exp.setdefault(e.protein, []).append(k)
 
