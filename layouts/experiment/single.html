@@ -15,6 +15,9 @@
 <br>
 <table border=0>
 <tr>
+  <td align=right><b>Protein</b>:</td><td>{{ index $annotation "protein" }}</td>
+</tr>
+<tr>
   <td align=right><b>Library ID</b>:</td><td>{{ index $annotation "lib_id" }}</td>
 </tr>
 <tr>
@@ -37,17 +40,17 @@
   {{ $fname := index $annotation "fq_filename" }}
   {{ $fname := split $fname "/" }}
   {{ $fname := index $fname (add (len $fname) -1) }}
-  <td align=right><b>FASTQ</b>:</td><td><a href='{{ $furl }}'>{{ $fname }}</a></td>
+  <td align=right><b>FASTQ</b>:</td><td><a href='{{ $furl }}'>{{ $fname }}</a> [{{ index $annotation "filesize"}}]</td>
 </tr>
 </table>
 
-{{ $mappings := index $experiment_data "Mappings" }}
-
 <br>
+{{ $mappings := index $experiment_data "Mappings" }}
 
 {{ range $mapping_key, $mapping_data := $mappings }}
    {{ $mapping_annotation := index $mapping_data "Annotation" }}
    {{ $mapping_results := index $mapping_data "Results" }}
+   {{ $mapping_analyses := index $mapping_data "Analyses" }}
   <b><font color=darkred>Mapping ({{ $mapping_key }})</b></font>
   <br>
   <table border=0>
@@ -62,7 +65,7 @@
   </tr>
   </table>
   <br>
-  <b><font color=darkred>Results</b></font>
+  <b><font color=darkred>Mapped files</b></font>
   <br>
   <table border=0>
     {{ range $res_key, $res_value := $mapping_results }}
@@ -71,18 +74,26 @@
       {{ $fname := index $res_value "result_filename" }}
       {{ $fname := split $fname "/" }}
       {{ $fname := index $fname (add (len $fname) -1) }}
-      <td align=right><b>{{ index $res_value "type" }}</b>:</td><td><a href='{{ $furl }}'>{{ $fname }}</a></td>
+      <td align=right><b>{{ index $res_value "type" }}</b>:</td><td><a href='{{ $furl }}'>{{ $fname }}</a> [{{ index $res_value "filesize" }}]</td>
+    </tr>
+  {{ end }}
+  </table>
+  <br>
+  <b><font color=darkred>Analyses</b></font>
+  <br>
+  <table border=0>
+    {{ range $res_key, $res_value := $mapping_analyses }}
+    <tr>
+      <td align=right><b>{{ $res_key }}</b>:</td><td>
+          {{ range $aid := $res_value }}
+          <a href='/analysis/{{ $aid }}'>{{ $aid }}</a>
+          {{ end }}
+      </td>
     </tr>
   {{ end }}
   </table>
 
 {{ end }}
-
-<!--
-{{ range $key, $val := $experiment_data }}
- {{ $key }} : {{ $val }} <br>
-{{end}}
--->
 
 <br>
 
